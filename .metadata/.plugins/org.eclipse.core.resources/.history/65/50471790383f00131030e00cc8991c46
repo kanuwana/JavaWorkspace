@@ -1,0 +1,43 @@
+
+
+<html>
+<head></head>
+<body>
+	<div align="center"><h2>Welcome to the Product Management System Client</h2></div><hr/>
+	
+	<div><h3>Save Product</h3>
+		<form name="saveProduct" action="/product/save" method="post">
+				Product Name: <input type="text" name="productName">
+				<input type="submit" value="Save Product">
+		</form>
+	</div><br/><hr/>
+	
+	<div><h3>Get Product</h3>
+		<form name="getProduct" action="/product/get" method="get">
+		Product Name: <input type="text" name="productName">
+				<input type="submit" value="Get Product">
+		</form>
+	</div><br/><hr/>
+	
+	<div><h3>Update Product</h3>
+		<form name="updateProduct" action="/product/update" method="put">
+				Product New Name: <input type="text" name="productName">
+				<input type="submit" value="Update Product">
+		</form>
+	</div><br/><hr/>
+	
+	<div><h3>Remove Product</h3>
+		<form name="removeProduct" action="/product/remove" method="delete">
+				Product Name: <input type="text" name="productName">
+				<input type="submit" value="Remove Product">
+		</form>
+	</div><hr/>
+
+	<div><h3>Get All Product</h3>
+		<form name="getProduct" action="/product/get" method="get">
+				<input type="submit" value="Get Product">
+		</form>
+	</div><br/><hr/>	
+	
+</body>
+</html>
