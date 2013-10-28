@@ -3,33 +3,20 @@
  */
 package main.java.com.kanuwana.pms.service;
 
-import java.net.URI;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
 import javax.ws.rs.DELETE;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.CacheControl;
-import javax.ws.rs.core.EntityTag;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.Response.StatusType;
-import javax.ws.rs.core.Variant;
-import javax.ws.rs.core.Response.ResponseBuilder;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import main.java.com.kanuwana.pms.business.ProductBusiness;
-import main.java.com.kanuwana.pms.business.ProductBusinessImpl;
-import main.java.com.kanuwana.pms.dao.JDBCProductDAO;
-import main.java.com.kanuwana.pms.dao.ProductDAO;
-import main.java.com.kanuwana.pms.dto.Product;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * This is the service interface for presentation layer. This has all the functions related
@@ -37,19 +24,11 @@ import main.java.com.kanuwana.pms.dto.Product;
  * @author skanuwana
  *
  */
-@Path("/product/")
+@Path("/product/*")
 public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductBusiness productBusiness; //This is auto injected by Spring
-	
-	public ProductBusiness getProductBusiness() {
-		return productBusiness;
-	}
-
-	public void setProductBusiness(ProductBusiness productBusiness) {
-		this.productBusiness = productBusiness;
-	}
 
 	/* (non-Javadoc)
 	 * @see main.com.virtusa.pms.service.ProductService#saveProduct(final String productName)
@@ -57,9 +36,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Path("/save/")
 	@POST
-	public void saveProduct(final String productName) {
-		System.out.println("save called");
-		//productBusiness.saveProduct(productName);
+	public Response saveProduct(final String productName) {
+		return Response.status(productBusiness.saveProduct(productName)).build();
 	}
 
 	/* (non-Javadoc)
@@ -67,8 +45,8 @@ public class ProductServiceImpl implements ProductService {
 	 */
 	@Override
 	//Not exposed
-	public void saveProduct(final String productName, final String storeName) {
-		//productBusiness.saveProduct(productName, storeName);
+	public Response saveProduct(final String productName, final String storeName) {
+		return Response.status(productBusiness.saveProduct(productName, storeName)).build();
 	}
 	
 	/* (non-Javadoc)
@@ -77,8 +55,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Path("/get/")
 	@GET
-	public String getProduct(final String productName) {
-		return "get called";
+	public Response getProduct(@DefaultValue("Test Product") @QueryParam("productName") String productName) {
+		return Response.ok(productBusiness.getProduct(productName)).build();
 	}
 	
 	/* (non-Javadoc)
@@ -87,8 +65,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Path("/getall/")
 	@GET
-	public String getAllProducts() {
-		return "get all called";
+	public Response getAllProducts() {
+		return Response.ok("To do").build();
 	}
 
 	/* (non-Javadoc)
@@ -97,9 +75,8 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Path("/update/")
 	@DELETE
-	public void updateProduct(final String productName) {
-		System.out.println("update called");
-		//productBusiness.updateProduct(productName);
+	public Response updateProduct(final String productName) {
+		return Response.status(productBusiness.updateProduct(productName)).build();
 	}
 	
 	/* (non-Javadoc)
@@ -108,16 +85,23 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	@Path("/remove/")
 	@DELETE
-	public void removeProduct(final String productName) {
-		System.out.println("remove called");
-		//productBusiness.removeProduct(productName);
+	public Response removeProduct(final String productName, final String storeName) {
+		return Response.status(productBusiness.removeProduct(productName, storeName)).build(); 
 	}
 	
 	@GET
 	@Path("/test/")
 	@Produces(MediaType.TEXT_HTML)
-	public String testPMS()
+	public Response testPMS()
 	{
-		return "Still working";
+		return Response.status(Status.OK).entity("It is working fine").build();
+	}
+	
+	public ProductBusiness getProductBusiness() {
+		return productBusiness;
+	}
+
+	public void setProductBusiness(ProductBusiness productBusiness) {
+		this.productBusiness = productBusiness;
 	}
 }

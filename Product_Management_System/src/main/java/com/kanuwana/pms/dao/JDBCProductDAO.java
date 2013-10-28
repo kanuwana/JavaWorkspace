@@ -1,5 +1,7 @@
 package main.java.com.kanuwana.pms.dao;
 
+import javax.ws.rs.core.Response.Status;
+
 import main.java.com.kanuwana.pms.dto.Product;
 import main.java.com.kanuwana.pms.dto.Store;
 
@@ -22,7 +24,7 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	@Transactional
-	public void saveProduct(Product product) {
+	public Status saveProduct(Product product) {
 		
 		Session session = getSession();
 		session.beginTransaction();
@@ -33,6 +35,7 @@ public class JDBCProductDAO implements ProductDAO {
 		
 		session.close();
 
+		return Status.OK;
 	}
 
 	/* (non-Javadoc)
@@ -40,9 +43,8 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	@Transactional
-	public void saveProduct(Product product, Store store) {
-		// TODO Auto-generated method stub
-
+	public Status saveProduct(Product product, Store store) {
+		return Status.OK;
 	}
 
 	/* (non-Javadoc)
@@ -51,7 +53,6 @@ public class JDBCProductDAO implements ProductDAO {
 	@Override
 	@Transactional
 	public Product getProduct(Product product) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -60,9 +61,8 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	@Transactional
-	public void removeProduct(Product product, Store store) {
-		// TODO Auto-generated method stub
-
+	public Status removeProduct(Product product, Store store) {
+		return Status.OK;
 	}
 
 	/* (non-Javadoc)
@@ -70,9 +70,8 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	@Transactional
-	public Product updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		return null;
+	public Status updateProduct(Product product) {
+		return Status.OK;
 	}
 
 	/* (non-Javadoc)
@@ -80,7 +79,6 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	public boolean isNewProduct(Product product) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -89,7 +87,6 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	public boolean isStockEnough(Product product) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -98,7 +95,6 @@ public class JDBCProductDAO implements ProductDAO {
 	 */
 	@Override
 	public boolean isStockEnough(Product product, Store store) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

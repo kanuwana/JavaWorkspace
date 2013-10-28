@@ -1,5 +1,7 @@
 package main.java.com.kanuwana.pms.dao;
 
+import javax.ws.rs.core.Response.Status;
+
 import main.java.com.kanuwana.pms.dto.Product;
 import main.java.com.kanuwana.pms.dto.Store;
 
@@ -13,15 +15,17 @@ public interface ProductDAO {
 	/**
 	 * Saves a product in main store (Store 1)
 	 * @param product
+	 * @return the status
 	 */
-	public void saveProduct(final Product product);
+	public Status saveProduct(final Product product);
 	
 	/**
 	 * Saves a product in a given store.
 	 * @param product
 	 * @param store
+	 * @return the status
 	 */
-	public void saveProduct(final Product product, final Store store);
+	public Status saveProduct(final Product product, final Store store);
 	
 	/**
 	 * Retrieves a product from the database.
@@ -35,15 +39,16 @@ public interface ProductDAO {
 	 * Removes a product from a given store.
 	 * @param product
 	 * @param store
+	 * @return the status
 	 */
-	public void removeProduct(final Product product, final Store store);
+	public Status removeProduct(final Product product, final Store store);
 	
 	/**
 	 * Updates a given product.
 	 * @param product
 	 * @return the updated product
 	 */
-	public Product updateProduct(final Product product);
+	public Status updateProduct(final Product product);
 	
 	/**
 	 * Checks whether the given product is new or existing. Returns true if new.
