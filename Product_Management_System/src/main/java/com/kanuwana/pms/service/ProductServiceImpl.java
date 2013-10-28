@@ -105,10 +105,8 @@ public class ProductServiceImpl implements ProductService {
 	@GET
 	@Path("/test/")
 	@Produces(MediaType.TEXT_HTML)
-	public String test()
+	public String testPMS()
 	{
-		ProductBusinessImpl p = new ProductBusinessImpl();
-		Product pp = p.prepareProduct("nu");
 		return "Still working";
 	}
 }

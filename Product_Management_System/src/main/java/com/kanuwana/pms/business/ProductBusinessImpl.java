@@ -9,6 +9,8 @@ import main.java.com.kanuwana.pms.dto.Distributor;
 import main.java.com.kanuwana.pms.dto.Product;
 import main.java.com.kanuwana.pms.dto.Store;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * This is the implementation of ProductBusiness which describes all the business related
  * logic for Product Management System.
@@ -17,16 +19,9 @@ import main.java.com.kanuwana.pms.dto.Store;
  */
 public class ProductBusinessImpl implements ProductBusiness {
 	
+	@Autowired
 	private ProductDAO jdbcDao;
 	
-	public ProductDAO getJdbcDao() {
-		return jdbcDao;
-	}
-
-	public void setJdbcDao(ProductDAO jdbcDao) {
-		this.jdbcDao = jdbcDao;
-	}
-
 	/* (non-Javadoc)
 	 * @see main.com.virtusa.pms.business.ProductBusiness#isNewProduct(main.com.virtusa.pms.domain.Product)
 	 */
@@ -117,7 +112,9 @@ public class ProductBusinessImpl implements ProductBusiness {
 		Product p1 = new Product();
 		p1.setName(productName);
 		//p1.setDistributor(d);
-		//	p1.setStore(st);
+		//p1.setStore(st);
+		
+		jdbcDao.saveProduct(p1);
 		
 		return p1;
 	}

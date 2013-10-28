@@ -46,4 +46,7 @@ public interface ProductService {
 	 * @param productName
 	 */
 	public void removeProduct(final String productName);
+	
+	//TEST method
+	public String testPMS();
 }
