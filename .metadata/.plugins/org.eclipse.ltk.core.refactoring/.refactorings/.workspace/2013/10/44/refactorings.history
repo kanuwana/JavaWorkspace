@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Product Management System&apos; to &apos;ProductManagementSystem&apos;" description="Rename resource &apos;Product Management System&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/Product Management System" name="ProductManagementSystem" stamp="1382885049590" updateReferences="true"/>&#x0A;<refactoring comment="Delete resource &apos;ProductManagementSystem&apos;" deleteContents="false" description="Delete resource &apos;ProductManagementSystem&apos;" element1="/ProductManagementSystem" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1382898696038"/>
-</session>
