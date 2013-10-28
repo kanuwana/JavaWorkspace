@@ -22,6 +22,14 @@ public class ProductBusinessImpl implements ProductBusiness {
 	@Autowired
 	private ProductDAO jdbcDao;
 	
+	public ProductDAO getJdbcDao() {
+		return jdbcDao;
+	}
+
+	public void setJdbcDao(ProductDAO jdbcDao) {
+		this.jdbcDao = jdbcDao;
+	}
+
 	/* (non-Javadoc)
 	 * @see main.com.virtusa.pms.business.ProductBusiness#isNewProduct(main.com.virtusa.pms.domain.Product)
 	 */

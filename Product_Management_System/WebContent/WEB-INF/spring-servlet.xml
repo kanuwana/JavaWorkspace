@@ -14,7 +14,7 @@
 					                http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"> 
                                    
                 <aop:aspectj-autoproxy/> 
-                
+                <context:annotation-config />
                 <context:property-placeholder location="classpath:jdbc_database.properties" /> 
                 <context:component-scan base-package="main.java.com.kanuwana" />  
                 <tx:annotation-driven transaction-manager="hibernateTransactionManager" />
@@ -40,11 +40,11 @@
         			<property name="sessionFactory" ref="sessionFactory" />  
     			</bean>
     			
-                <!-- Domain Bean Definitions -->
-                <bean id="productBusiness" class="main.java.com.kanuwana.pms.business.ProductBusinessImpl">
-                	<property name="jdbcDao" ref="jdbcDao"></property>
-                </bean>
-                
+                <!-- Domain Specific Bean Definitions -->
+                <bean id="productBusiness" class="main.java.com.kanuwana.pms.business.ProductBusinessImpl" scope="singleton"/>
+
+				<bean id="productService" class="main.java.com.kanuwana.pms.service.ProductServiceImpl" scope="singleton"/> 
+				               
                 <bean id="jdbcDao" class="main.java.com.kanuwana.pms.dao.JDBCProductDAO" scope="singleton"/>
                 
 </beans>    

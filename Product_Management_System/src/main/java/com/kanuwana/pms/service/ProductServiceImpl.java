@@ -23,6 +23,8 @@ import javax.ws.rs.core.Response.StatusType;
 import javax.ws.rs.core.Variant;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import main.java.com.kanuwana.pms.business.ProductBusiness;
 import main.java.com.kanuwana.pms.business.ProductBusinessImpl;
 import main.java.com.kanuwana.pms.dao.JDBCProductDAO;
@@ -38,8 +40,17 @@ import main.java.com.kanuwana.pms.dto.Product;
 @Path("/product/")
 public class ProductServiceImpl implements ProductService {
 
-	private ProductBusiness productBusiness; //This is injected by Spring
+	@Autowired
+	private ProductBusiness productBusiness; //This is auto injected by Spring
 	
+	public ProductBusiness getProductBusiness() {
+		return productBusiness;
+	}
+
+	public void setProductBusiness(ProductBusiness productBusiness) {
+		this.productBusiness = productBusiness;
+	}
+
 	/* (non-Javadoc)
 	 * @see main.com.virtusa.pms.service.ProductService#saveProduct(final String productName)
 	 */
