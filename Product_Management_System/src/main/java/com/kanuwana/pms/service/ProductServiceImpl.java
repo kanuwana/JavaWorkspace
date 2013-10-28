@@ -3,14 +3,30 @@
  */
 package main.java.com.kanuwana.pms.service;
 
+import java.net.URI;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.CacheControl;
+import javax.ws.rs.core.EntityTag;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.NewCookie;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.Response.StatusType;
+import javax.ws.rs.core.Variant;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import main.java.com.kanuwana.pms.business.ProductBusiness;
+import main.java.com.kanuwana.pms.business.ProductBusinessImpl;
+import main.java.com.kanuwana.pms.dao.JDBCProductDAO;
+import main.java.com.kanuwana.pms.dao.ProductDAO;
 import main.java.com.kanuwana.pms.dto.Product;
 
 /**
@@ -45,14 +61,23 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	/* (non-Javadoc)
-	 * @see main.com.virtusa.pms.service.ProductService#retrieveProduct(final String productName)
+	 * @see main.com.virtusa.pms.service.ProductService#getProduct(final String productName)
 	 */
 	@Override
 	@Path("/get/")
 	@GET
-	public Product getProduct(final String productName) {
-		System.out.println("get called");
-		return null;//productBusiness.getProduct(productName);
+	public String getProduct(final String productName) {
+		return "get called";
+	}
+	
+	/* (non-Javadoc)
+	 * @see main.com.virtusa.pms.service.ProductService#getAllProducts()
+	 */
+	@Override
+	@Path("/getall/")
+	@GET
+	public String getAllProducts() {
+		return "get all called";
 	}
 
 	/* (non-Javadoc)
@@ -82,6 +107,8 @@ public class ProductServiceImpl implements ProductService {
 	@Produces(MediaType.TEXT_HTML)
 	public String test()
 	{
-		return "Product Management Service is Working!";
+		ProductBusinessImpl p = new ProductBusinessImpl();
+		Product pp = p.prepareProduct("nu");
+		return "Still working";
 	}
 }

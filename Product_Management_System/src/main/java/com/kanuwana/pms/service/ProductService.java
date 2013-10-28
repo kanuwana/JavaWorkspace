@@ -1,6 +1,5 @@
 package main.java.com.kanuwana.pms.service;
 
-import main.java.com.kanuwana.pms.dto.Product;
 
 /**
  * Describes the interface for Product related database operations.
@@ -25,9 +24,16 @@ public interface ProductService {
 	/**
 	 * Retrieves a product from the database.
 	 * @param productName
-	 * @return the product 
+	 * @return the product string
 	 */
-	public Product getProduct(final String productName);
+	public String getProduct(final String productName);
+	
+	/**
+	 * Retrieves all the products list from the database.
+	 * @param productName
+	 * @return the product list 
+	 */
+	public String getAllProducts();
 	
 	/**
 	 * Updates an existing product.

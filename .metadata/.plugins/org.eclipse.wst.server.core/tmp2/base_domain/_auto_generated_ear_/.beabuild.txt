@@ -1,0 +1,3 @@
+C\:/Projects/JavaWorkspace/Product_Management_System/WebContent = Product_Management_System.war
+C\:/Projects/JavaWorkspace/.metadata/.plugins/org.eclipse.core.resources/Product_Management_System/build/weboutput = Product_Management_System.war
+C\:/Projects/JavaWorkspace/Product_Management_System/build/classes = Product_Management_System.war/WEB-INF/classes

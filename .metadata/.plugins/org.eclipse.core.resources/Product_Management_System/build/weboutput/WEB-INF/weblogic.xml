@@ -4,7 +4,7 @@
     <wls:context-root>Product_Management_System</wls:context-root>
     <wls:jsp-descriptor>
         <wls:keepgenerated>true</wls:keepgenerated>
-        <wls:working-dir>C:\Projects\JavaWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\base_domain\work\Product_Management_System</wls:working-dir>
+        <wls:working-dir>C:\Projects\JavaWorkspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp2\base_domain\work\Product_Management_System</wls:working-dir>
         <wls:debug>true</wls:debug>
     </wls:jsp-descriptor>
 </wls:weblogic-web-app>

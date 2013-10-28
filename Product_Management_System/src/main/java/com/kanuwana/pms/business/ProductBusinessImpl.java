@@ -3,6 +3,7 @@
  */
 package main.java.com.kanuwana.pms.business;
 
+import main.java.com.kanuwana.pms.dao.ProductDAO;
 import main.java.com.kanuwana.pms.dto.Address;
 import main.java.com.kanuwana.pms.dto.Distributor;
 import main.java.com.kanuwana.pms.dto.Product;
@@ -16,6 +17,16 @@ import main.java.com.kanuwana.pms.dto.Store;
  */
 public class ProductBusinessImpl implements ProductBusiness {
 	
+	private ProductDAO jdbcDao;
+	
+	public ProductDAO getJdbcDao() {
+		return jdbcDao;
+	}
+
+	public void setJdbcDao(ProductDAO jdbcDao) {
+		this.jdbcDao = jdbcDao;
+	}
+
 	/* (non-Javadoc)
 	 * @see main.com.virtusa.pms.business.ProductBusiness#isNewProduct(main.com.virtusa.pms.domain.Product)
 	 */

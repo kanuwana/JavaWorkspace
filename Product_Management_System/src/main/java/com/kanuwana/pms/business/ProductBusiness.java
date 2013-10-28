@@ -9,7 +9,6 @@ import main.java.com.kanuwana.pms.dto.Store;
  *
  */
 public interface ProductBusiness {
-
 	/**
 	 * Checks whether the given product is new or existing. Returns true if new.
 	 * @param product 

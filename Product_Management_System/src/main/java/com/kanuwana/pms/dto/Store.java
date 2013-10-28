@@ -1,28 +1,11 @@
 package main.java.com.kanuwana.pms.dto;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-
-import javax.annotation.Generated;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 /**
  * Represents the actual store where products are saved, retrieved and removed
@@ -36,7 +19,7 @@ public class Store {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private int id;
-	@Transient
+	@Column(name="STORE_NAME")
 	private String name;
 //	@Embedded
 //	@ElementCollection(fetch=FetchType.EAGER)//Pulls up entire object including collection
