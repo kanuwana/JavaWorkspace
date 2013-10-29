@@ -1,6 +1,0 @@
-package main.com.kanuwana.pms.aspect;
-
-
-public class LogginAspect {
-
-}

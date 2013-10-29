@@ -1,8 +1,0 @@
-package main.java.com.kanuwana.pms;
-
-import javax.ws.rs.*;
-
-@Path("/service/*")
-public class ProductService {
-
-}

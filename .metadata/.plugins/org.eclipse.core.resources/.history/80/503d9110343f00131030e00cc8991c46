@@ -1,6 +1,0 @@
-package main.com.virtusa.pms.aspect;
-
-
-public class LogginAspect {
-
-}

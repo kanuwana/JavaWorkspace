@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-C:\Projects\JavaWorkspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2045524579.index
-\ProductManagementSystem\src
