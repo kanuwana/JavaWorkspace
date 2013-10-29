@@ -54,5 +54,5 @@ public interface ProductService {
 	public Response removeProduct(final String productName, final String storeName);
 	
 	//TEST method
-	public Response testPMS();
+	public String testPMS(String productName);
 }

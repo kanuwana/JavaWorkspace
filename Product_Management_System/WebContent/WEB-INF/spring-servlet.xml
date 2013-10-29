@@ -41,9 +41,13 @@
     			</bean>
     			
                 <!-- Domain Specific Bean Definitions -->
-                <bean id="productBusiness" class="main.java.com.kanuwana.pms.business.ProductBusinessImpl" scope="singleton"/>
+                <bean id="productBusiness" class="main.java.com.kanuwana.pms.business.ProductBusinessImpl" scope="singleton">
+                	<property name="jdbcDao" ref="jdbcDao"></property>
+                </bean>
 
-				<bean id="productService" class="main.java.com.kanuwana.pms.service.ProductServiceImpl" scope="singleton"/> 
+				<bean id="productService" class="main.java.com.kanuwana.pms.service.ProductServiceImpl" scope="singleton">
+					<property name="productBusiness" ref="productBusiness"></property>
+				</bean> 
 				               
                 <bean id="jdbcDao" class="main.java.com.kanuwana.pms.dao.JDBCProductDAO" scope="singleton"/>
                 
