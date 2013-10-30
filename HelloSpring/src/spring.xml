@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="room" class="main.com.kanuwana.hellospring.dto.PublicRoom">
+		<property name="resources">
+			<list>
+				<ref bean="lampResource"/>			
+				<ref bean="tableResource"/>
+			</list>
+		</property>
+		<property name="cleaner" ref="maleCleaner"/>
+		<property name="ready" value="false"/>
+		<property name="roomType" value="NS"/>
+	</bean>
+
+	<bean id="smokerRoom" class="main.com.kanuwana.hellospring.dto.SmokerRoom" parent="room">
+		<property name="roomType" value="S"/>
+	</bean>
+	
+	<bean id="nonSmokerRoom" class="main.com.kanuwana.hellospring.dto.NonSmokerRoom" parent="room">
+		<property name="cleaner" ref="femaleCleaner">
+		</property>
+	</bean>
+	
+	<bean id="lampResource" class="main.com.kanuwana.hellospring.dto.Resource">
+		<property name="name" value="lamp"/>
+		<property name="id" value="123456"/>
+	</bean>
+	
+	<bean id="tableResource" class="main.com.kanuwana.hellospring.dto.Resource">
+		<property name="name" value="table"/>
+		<property name="id" value="234567"/>
+	</bean>
+	
+	<bean id="maleCleaner" class="main.com.kanuwana.hellospring.dto.Cleaner">
+		<property name="name" value="Sahan"/>
+		<property name="id" value="5002296"/>
+	</bean>
+	
+	<bean id="femaleCleaner" class="main.com.kanuwana.hellospring.dto.Cleaner">
+		<property name="name" value="Sahani"/>
+		<property name="id" value="2296500"/>
+	</bean>
+	
+</beans>
