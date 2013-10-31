@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
-<beans>
-
+<beans xmlns="http://www.springframework.org/schema/beans"  
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+                xmlns:context="http://www.springframework.org/schema/context"  
+                xmlns:aop="http://www.springframework.org/schema/aop"  
+                xmlns:tx="http://www.springframework.org/schema/tx"
+                xsi:schemaLocation="http://www.springframework.org/schema/tx  
+					                http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+					                http://www.springframework.org/schema/context  
+					                http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+					                http://www.springframework.org/schema/beans  
+					                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+					                http://www.springframework.org/schema/aop  
+					                http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"> 
+                                   
+	<context:annotation-config/>
+	
 	<bean id="room" class="main.com.kanuwana.hellospring.dto.PublicRoom">
 		<property name="resources">
 			<list>
@@ -10,18 +23,27 @@
 				<ref bean="tableResource"/>
 			</list>
 		</property>
-		<property name="cleaner" ref="maleCleaner"/>
 		<property name="ready" value="false"/>
 		<property name="roomType" value="NS"/>
 	</bean>
 
-	<bean id="smokerRoom" class="main.com.kanuwana.hellospring.dto.SmokerRoom" parent="room">
-		<property name="roomType" value="S"/>
+<!-- 	<bean id="manager" class="main.com.kanuwana.hellospring.dto.Manager"> -->
+<!-- 		<property name="name" value="Mr.Kanuwana"></property> -->
+<!-- 	</bean> -->
+
+	<context:component-scan base-package="main.com.kanuwana"></context:component-scan>
+	
+	<bean id="smokerRoom" class="main.com.kanuwana.hellospring.dto.SmokerRoom" parent="room"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="nonSmokerRoom" class="main.com.kanuwana.hellospring.dto.NonSmokerRoom" parent="room">
-		<property name="cleaner" ref="femaleCleaner">
-		</property>
 	</bean>
 	
 	<bean id="lampResource" class="main.com.kanuwana.hellospring.dto.Resource">
@@ -40,8 +62,13 @@
 	</bean>
 	
 	<bean id="femaleCleaner" class="main.com.kanuwana.hellospring.dto.Cleaner">
-		<property name="name" value="Sahani"/>
+		<qualifier value="smokerRoomRelated"></qualifier>
+		<property name="name" value="${femaleCleaner.name}"/>
 		<property name="id" value="2296500"/>
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:initialproperties.properties"/>
 	</bean>
 	
 </beans>
