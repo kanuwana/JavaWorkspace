@@ -1,5 +1,6 @@
 package main.java.com.kanuwana.pms.dto;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * Represents a product/item stored in the store.
@@ -18,6 +22,8 @@ import javax.persistence.Table;
 @NamedQuery(name="Product.byId", query="from Product where id = ?")
 @NamedNativeQuery(name="Product.byName", query="select * from PRODUCT where PRODUCT_NAME = ?", resultClass=Product.class)
 @Table(name="PRODUCT")
+@Cacheable
+@Cache(usage=CacheConcurrencyStrategy.READ_WRITE)
 public class Product {
 
 	@Id

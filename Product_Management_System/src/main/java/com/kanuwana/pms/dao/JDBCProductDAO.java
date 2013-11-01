@@ -68,6 +68,8 @@ public class JDBCProductDAO implements ProductDAO {
 		query.setFirstResult(1);
 		query.setMaxResults(30);
 		
+		//query cache
+		query.setCacheable(true); //And set the other query to true as well
 		//Using criteria, projections order
 		Criteria criteria = session.createCriteria(Product.class)
 							.setProjection(Projections.count("name"))
