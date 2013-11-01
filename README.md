@@ -24,24 +24,55 @@ Java RESTful web services
 =========================
 - Specific/Strict use of GET,POST,PUT and DELETE
 - RESTful - Jersey Annotations
+- JSON data transfer
+- Annotations
+- Preventing cross-site scripting (ESAPI 2.1)
+- Preventing SQL injection
+
+Eclipse Kepler, Oracle Web Logic 12c, Oracle Database 12, MYSQL 5
+=================================================================
+- Application development and deployment to the server
+- Data source definitions, SQL
 
 Hibernate 3
 ===========
-- Basic and advanced annotations (Java persistance annotations and hibernate annotations) {Entity, Table, Column, Id, GeneratedValue, Transient, Embedded, Embeddable, GenericGenerator, ElementCollection, CollectionId, OneToOne, OneToMany, ManyToMany, ManyToOne, AttributeOverrides, AttributeOverride, etc}
+- Basic and advanced annotations (Java persistence annotations and hibernate annotations) {Entity, Table, Column, Id, GeneratedValue, Transient, Embedded, Embeddable, GenericGenerator, ElementCollection, CollectionId, OneToOne, OneToMany, ManyToMany, ManyToOne, AttributeOverrides, AttributeOverride, etc}
 - Hibernate configurations (caching, hbm2ddl and more configurations in hibernate.cfg.xml hibernate config file)
-- Mapping and relationships between entities
-- Persisting collecitons, Embedding objects, Casacading objects
-- Primary Key, SurrogateKey, Foriegn key relationships
+- Mapping and relationships between entities 
+- Persisting collections, Embedding objects, Casacading objects
+- Primary Key, Surrogate Key, Foreign key relationships
 - Attribute overriding
 - Proxy object - lazy/Eager initialization
 - Persistent, Transient, Detached objects and state changes
-- Named queries,HQL
-- Paramete binding, SQL injection, Caching 10.Pagination and many more
+- Named queries, HQL
+- Parameter binding, SQL injection, Caching, Query Cache
+- Pagination, Projections, Restrictions
 
 Spring 3
 ========
 - Dependancy Injection
 - AOP for Logging Aspect
+- Hibernate, Data source, Transaction manager configuration
+- Using property files with placeholders
+- AOP – AspectJ for logging aspect
+- Using Bean Factory
+- Bean scope
+- Bean injection, autowiring
+- Bean lifecycle call back methods (InitilizingBean-afterPropertySet, DisposableBean-destroy, and defining them globally)
+- Beanpostprocessor, BeanFactoryPostProcessor
+- Reading property files and assing property valies in xml file
+- Code to interface
+- Inner beans, idref, aliases
+- Place holders
+- ApplicationContextAware, BeanAware interfaces
+- Bean definition inheritance, abstract beans, merging collections with inheritance
+- Unhooking the application context for desktop apps (AbstractApplicationContext – registerShutdownHook)
+- Annotations [Required, Autowired, Qualife]
+- JSR annotations [Resource, PostConstruct, PreDestroy]
+- Steriotypes [Component, Controller, Service, Repository
+- MessageSource (resource bundle message source) with properties files with placeholders
+- Event listeners (applicationListerner, custom event listeners
+
 
 Git&GitHub
 ==========
