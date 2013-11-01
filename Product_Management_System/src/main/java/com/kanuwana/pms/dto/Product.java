@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -13,6 +15,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
+@NamedQuery(name="Product.byId", query="from Product where id = ?")
+@NamedNativeQuery(name="Product.byName", query="select * from PRODUCT where PRODUCT_NAME = ?", resultClass=Product.class)
 @Table(name="PRODUCT")
 public class Product {
 
