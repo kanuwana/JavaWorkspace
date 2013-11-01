@@ -14,6 +14,7 @@ public class JDBCProductDAO implements ProductDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	private Session session;
 	
 	public JDBCProductDAO() {
 		// TODO Auto-generated constructor stub
@@ -26,7 +27,7 @@ public class JDBCProductDAO implements ProductDAO {
 	@Transactional
 	public Status saveProduct(Product product) {
 		
-		Session session = getSession();
+		session = getSession();
 		session.beginTransaction();
 		
 		session.save(product);
@@ -44,6 +45,7 @@ public class JDBCProductDAO implements ProductDAO {
 	@Override
 	@Transactional
 	public Status saveProduct(Product product, Store store) {
+		//TO DO;
 		return Status.OK;
 	}
 
@@ -53,7 +55,11 @@ public class JDBCProductDAO implements ProductDAO {
 	@Override
 	@Transactional
 	public Product getProduct(Product product) {
-		return null;
+		session = getSession(); 
+		session.beginTransaction();
+		product = (Product) session.get(Product.class, product.getId());
+		session.close();
+		return product; 
 	}
 
 	/* (non-Javadoc)
@@ -62,6 +68,11 @@ public class JDBCProductDAO implements ProductDAO {
 	@Override
 	@Transactional
 	public Status removeProduct(Product product, Store store) {
+		
+		session = getSession();
+		session.delete(product);
+		session.close();
+		
 		return Status.OK;
 	}
 
@@ -71,6 +82,10 @@ public class JDBCProductDAO implements ProductDAO {
 	@Override
 	@Transactional
 	public Status updateProduct(Product product) {
+		session = getSession();
+		session.update(product);
+		session.close();
+		
 		return Status.OK;
 	}
 
