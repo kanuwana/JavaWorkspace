@@ -16,6 +16,8 @@
                                    
 	<context:annotation-config/>
 	
+	<aop:aspectj-autoproxy/>
+	
 	<bean id="room" class="main.com.kanuwana.hellospring.dto.PublicRoom">
 		<property name="resources">
 			<list>
